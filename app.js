@@ -1,5 +1,18 @@
 let markdown_area = document.getElementById("markdown-text-area")
 let preview_area = document.getElementById("preview")
+const placeholder_markdown = `# Welcome to Live Markdown
+
+Start typing to see your **markdown** rendered *instantly* on the right.
+
+**Supported syntax:**
+- Headers with '#'
+- **Bold** and *italic* text
+- Links like [this one](https://github.com/thecodecavedev)
+- Bullet lists (like this!)
+
+---
+
+Try deleting this text and writing your own. Happy writing!`;
 
 
 function parse_markdown(val){
@@ -15,8 +28,10 @@ function parse_markdown(val){
   html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
   return html.trim()
 }
-
+markdown_area.value = placeholder_markdown
+preview_area.innerHTML = parse_markdown(markdown_area.value)
 markdown_area.addEventListener(("input"), function(event){
     // preview_area.innerHTML = event.target.value
     preview_area.innerHTML =parse_markdown(event.target.value)
+    
 })
