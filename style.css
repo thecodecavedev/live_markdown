@@ -41,11 +41,13 @@ textarea{
     font-family: "JetBrains Mono", monospace;
 }
 
-code{
-    background-color: #eaf4f4;
-    padding: 3px;
+.code{
+    background-color: #14213d;
+    padding: 3px 15px;
     font-family: "JetBrains Mono", monospace;
     border-radius: 3px;
+    width: 100%;
+    color: #38b000;
 }
 
 textarea:focus{

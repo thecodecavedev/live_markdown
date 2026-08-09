@@ -28,7 +28,7 @@ function parse_markdown(val) {
     html = html.replace(/\n/g, '<br>')
     html = html.replace(/---/g, '<hr>')
     html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
-    html = html.replace(/`(.*?)`/g, '<code>$1</code>')
+    html = html.replace(/`(.*?)`/g, '<div class="code"><code>$1</code></div>')
     return html.trim()
 }
 markdown_area.value = placeholder_markdown
