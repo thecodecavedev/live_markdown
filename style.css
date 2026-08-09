@@ -9,6 +9,14 @@
 body{
     display: flex;
     height: 100vh;
+    flex-direction: column;
+}
+
+.top-bar{
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+    background-color: #14213d;
 }
 
 .main-section{
@@ -25,17 +33,45 @@ textarea{
     width: 100%;
     padding: 20px;
     border-radius: 0;
+    resize: none;
+    border: none;
     flex: 1;
     background-color: #14213d;
     color: #f7ede2;
     font-family: "JetBrains Mono", monospace;
 }
 
+code{
+    background-color: #eaf4f4;
+    padding: 3px;
+    font-family: "JetBrains Mono", monospace;
+    border-radius: 3px;
+}
+
 textarea:focus{
-    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .preview{
     flex: 1;
     padding: 2rem;
+    
+}
+
+.export-pdf{
+    background-color: #1d3557;
+    border: none;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #eaf4f4;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.export-pdf:hover{
+    background-color: #457b9d;
+    cursor: pointer;
 }
