@@ -1,35 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-*{
+
+* {
     padding: 0;
     margin: 0;
-     font-family: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
-body{
+body {
     display: flex;
     height: 100vh;
     flex-direction: column;
 }
 
-.top-bar{
+.top-bar {
     padding: 10px;
     display: flex;
     justify-content: end;
     background-color: #14213d;
 }
 
-.main-section{
+.main-section {
     flex: 1;
     display: flex;
 }
 
-.editor{
+.editor {
     flex: 1;
     display: flex;
 }
 
-textarea{
+.CodeMirror {
+    width: 100% !important;
+    height: 100vh !important;
+    background-color: #14213d !important;
+    color: #e5e5e5 !important;
+}
+
+.CodeMirror-lines {
+    font-family: "JetBrains Mono", monospace !important;
+}
+
+.CodeMirror-gutters {
+    background-color: #14213d !important;
+    border: none !important;
+}
+
+.CodeMirror-linenumber {
+    color: #fca211 !important;
+    font-family: "JetBrains Mono", monospace !important;
+}
+
+.CodeMirror-cursor {
+    border-left: 5px solid #fca311 !important;
+    border-radius: 6px;
+}
+
+textarea {
     width: 100%;
     padding: 20px;
     border-radius: 0;
@@ -41,7 +68,7 @@ textarea{
     font-family: "JetBrains Mono", monospace;
 }
 
-.code{
+.code {
     background-color: #14213d;
     padding: 3px 15px;
     font-family: "JetBrains Mono", monospace;
@@ -50,18 +77,19 @@ textarea{
     color: #38b000;
 }
 
-textarea:focus{
+textarea:focus {
     outline: none;
     box-shadow: none;
 }
 
-.preview{
+.preview {
     flex: 1;
     padding: 2rem;
-    
+    background-color: #f1faee;
+
 }
 
-.export-pdf{
+.export-pdf {
     background-color: #1d3557;
     border: none;
     padding: 8px;
@@ -73,7 +101,15 @@ textarea:focus{
     border-radius: 6px;
 }
 
-.export-pdf:hover{
+.export-pdf:hover {
     background-color: #457b9d;
     cursor: pointer;
+}
+
+.list-item {
+    padding: 0;
+}
+
+.cm-editor .cm-content {
+    font-family: "JetBrains Mono", monospace;
 }

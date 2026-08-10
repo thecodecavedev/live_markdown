@@ -24,7 +24,8 @@ function parse_markdown(val) {
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     html = html.replace(/\*(.*?)\*/g, '<em>$1</em>')
     html = html.replace(/_(.*?)_/g, '<em>$1</em>')
-    html = html.replace(/^- (.*$)/gm, '<li><ul>$1</ul></li>')
+    html = html.replace(/\!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">')
+    html = html.replace(/^- (.*$)/gm, '<li class="list-item"><ul>$1</ul></li>')
     html = html.replace(/\n/g, '<br>')
     html = html.replace(/---/g, '<hr>')
     html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
@@ -33,11 +34,20 @@ function parse_markdown(val) {
 }
 markdown_area.value = placeholder_markdown
 preview_area.innerHTML = parse_markdown(markdown_area.value)
-markdown_area.addEventListener(("input"), function (event) {
+var editor = CodeMirror.fromTextArea(markdown_area, {
+    lineNumbers: true,
+    
+  });
+
+editor.addEventListener
+
+editor.on(("change"), function () {
     // preview_area.innerHTML = event.target.value
-    preview_area.innerHTML = parse_markdown(event.target.value)
+    preview_area.innerHTML = parse_markdown(editor.getValue())
 
 })
+
+
 
 export_button.addEventListener(('click'), function (e) {
     html2pdf().from(preview_area).save("livemarkdown.pdf")
