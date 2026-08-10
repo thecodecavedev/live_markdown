@@ -4,13 +4,14 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Inter", sans-serif;
+    /* font-family: "Inter", sans-serif; */
 }
 
 body {
     display: flex;
     height: 100vh;
     flex-direction: column;
+    background-color: #0d1629;
 }
 
 .top-bar {
@@ -32,14 +33,13 @@ body {
 
 .CodeMirror {
     width: 100% !important;
-    height: 100vh !important;
+    height: 100% !important;
     background-color: #14213d !important;
     color: #e5e5e5 !important;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 16px;
 }
 
-.CodeMirror-lines {
-    font-family: "JetBrains Mono", monospace !important;
-}
 
 .CodeMirror-gutters {
     background-color: #14213d !important;
@@ -47,7 +47,7 @@ body {
 }
 
 .CodeMirror-linenumber {
-    color: #fca211 !important;
+    color: #fca21135 !important;
     font-family: "JetBrains Mono", monospace !important;
 }
 
@@ -86,6 +86,9 @@ textarea:focus {
     flex: 1;
     padding: 2rem;
     background-color: #f1faee;
+    font-family: 'inter';
+    border-radius: 6px;
+    
 
 }
 
@@ -108,8 +111,4 @@ textarea:focus {
 
 .list-item {
     padding: 0;
-}
-
-.cm-editor .cm-content {
-    font-family: "JetBrains Mono", monospace;
 }

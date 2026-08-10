@@ -8,10 +8,24 @@ const placeholder_markdown = `# Welcome to Live Markdown
 Start typing to see your **markdown** rendered *instantly* on the right.
 
 **Supported syntax:**
-- Headers with '#'
-- **Bold** and *italic* text
+- Headers with #
+- **Bold** and *italic* text (**bold**, *italic*, or _italic_)
 - Links like [this one](https://github.com/thecodecavedev)
 - Bullet lists (like this!)
+- Inline \`code\`
+- Horizontal rules
+
+---
+
+**Checkboxes:**
+[] An unchecked task
+[x] A completed task
+
+**Images:**
+![A placeholder image](imgs/livemarkdown-logo.png)
+
+**Code example:**
+\`print("hello world")\`
 
 ---
 
@@ -30,12 +44,15 @@ function parse_markdown(val) {
     html = html.replace(/---/g, '<hr>')
     html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
     html = html.replace(/`(.*?)`/g, '<div class="code"><code>$1</code></div>')
+    html = html.replace(/\[\] (.*?)/g,'<input type="checkbox" disabled> <label>$1</label>')
+    html = html.replace(/\[\x] (.*?)/g,'<input type="checkbox" disabled checked> <label>$1</label>')
     return html.trim()
 }
 markdown_area.value = placeholder_markdown
 preview_area.innerHTML = parse_markdown(markdown_area.value)
 var editor = CodeMirror.fromTextArea(markdown_area, {
     lineNumbers: true,
+    lineWrapping:true,
     
   });
 
