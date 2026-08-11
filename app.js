@@ -4,7 +4,7 @@ let preview_area = document.getElementById("preview")
 let export_button = document.getElementById("export-pdf")
 
 const placeholder_markdown = `
-!bg(red)
+!bg(#ffe8d6)
 # Welcome to Live Markdown
 
 Start typing to see your **markdown** rendered *instantly* on the right.
@@ -41,18 +41,19 @@ function parse_markdown(val) {
     html = html.replace(/\*(.*?)\*/g, '<em>$1</em>')
     html = html.replace(/_(.*?)_/g, '<em>$1</em>')
     html = html.replace(/\!\[(.*?)\]\((.*?)\)\((.*?)\)/g, '<img src="$2" alt="$1" width="$3px">')
+    html = html.replace(/\!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">')
     html = html.replace(/^- (.*$)/gm, '<li class="list-item"><ul>$1</ul></li>')
     html = html.replace(/\n/g, '<br>')
     html = html.replace(/---/g, '<hr>')
     html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
     html = html.replace(/`(.*?)`/g, '<div class="code"><code>$1</code></div>')
-    html = html.replace(/\[\] (.*?)/g,'<input type="checkbox" disabled> <label>$1</label>')
-    html = html.replace(/\[\x] (.*?)/g,'<input type="checkbox" disabled checked> <label>$1</label>')
-    
+    html = html.replace(/\[\] (.*?)/g, '<input type="checkbox" disabled> <label>$1</label>')
+    html = html.replace(/\[\x] (.*?)/g, '<input type="checkbox" disabled checked> <label>$1</label>')
+
     // for handling colors and setup
-    html = html.replace(/\!bg\((.*?)\)/g,"")
+    html = html.replace(/\!bg\((.*?)\)/g, "")
     // html = html.replace()
-    
+
     // con
     return html.trim()
 }
@@ -63,12 +64,12 @@ function set_upDoc(val) {
     let bg = val
     let txt = val
     bg = bg.match(bg_color_regex)
- 
-    if (bg ) {
+
+    if (bg) {
         preview_area.style.cssText = `background-color: ${bg[1]} !important`
     }
-     
-    
+
+
 
 
 }
