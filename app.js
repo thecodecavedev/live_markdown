@@ -3,7 +3,9 @@ let markdown_area = document.getElementById("markdown-text-area")
 let preview_area = document.getElementById("preview")
 let export_button = document.getElementById("export-pdf")
 
-const placeholder_markdown = `# Welcome to Live Markdown
+const placeholder_markdown = `
+!bg(red)
+# Welcome to Live Markdown
 
 Start typing to see your **markdown** rendered *instantly* on the right.
 
@@ -48,7 +50,7 @@ function parse_markdown(val) {
     html = html.replace(/\[\x] (.*?)/g,'<input type="checkbox" disabled checked> <label>$1</label>')
     
     // for handling colors and setup
-    html = html.replace(/\!bg\((.*?)\)/,"")
+    html = html.replace(/\!bg\((.*?)\)/g,"")
     // html = html.replace()
     
     // con
@@ -72,6 +74,7 @@ function set_upDoc(val) {
 }
 markdown_area.value = placeholder_markdown
 preview_area.innerHTML = parse_markdown(markdown_area.value)
+set_upDoc(markdown_area.value)
 var editor = CodeMirror.fromTextArea(markdown_area, {
     lineNumbers: true,
     lineWrapping: true,
