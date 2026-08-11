@@ -149,5 +149,4 @@ it's the one that will actually take effect.
 | Background color | `!bg(#hexcolor)` — place at top; first one wins if repeated |
 
 ---
-
-*This is a living document — update it whenever new syntax is added or changed.*
+Try it out [here](https://thecodecavedev.github.io/live_markdown/)
